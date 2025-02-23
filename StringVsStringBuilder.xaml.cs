@@ -1,5 +1,7 @@
-﻿using System;
+﻿using StringVsStringBuilderBencher;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +24,26 @@ namespace HoggerBencher
         public StringVsStringBuilder()
         {
             InitializeComponent();
+        }
+
+        private async void StartStringVsStringBuilderTestBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+                var numLoops = Int32.Parse(numOfLoopsInput.Text);
+
+                string stringTest = await TestString.TestMemory(numLoops, null);
+
+                stringVsStringBuilderResult.Text = stringTest;
+
+            }
+            catch (FormatException fe)
+            {
+                MessageBox.Show("Please type a number in the textbox...");
+
+            }
+
         }
     }
 }

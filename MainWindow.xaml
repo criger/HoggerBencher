@@ -18,19 +18,16 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Rectangle Grid.Row="0" Fill="Yellow" Grid.ColumnSpan="3"/>
-        <Label Content="Its dangerous out there - Choose a test" Grid.ColumnSpan="3" HorizontalAlignment="Center" FontSize="20"/>
+        <Rectangle Grid.Row="0" Fill="LightBlue" Grid.ColumnSpan="3"/>
+        <Label Content="Please chhose a test - Its dangerous out there!" Grid.ColumnSpan="3" HorizontalAlignment="Center" FontSize="25"/>
 
-        <Rectangle Grid.Row="1" Fill="Salmon" Grid.Column="0"/>
-        <RadioButton Content="String vs StringBuilder" IsChecked="True" Grid.Column="0" Grid.Row="1" FontSize="15" Margin="10" HorizontalAlignment="Center" />
+        <RadioButton Content="String vs StringBuilder" IsChecked="True" Grid.Column="0" Grid.Row="1" FontSize="15" Margin="10" HorizontalAlignment="Center" Name="stringVsStringBuilderRadioBtn" />
 
-        <Rectangle Grid.Row="1" Fill="LightGreen" Grid.Column="1"/>
-        <RadioButton Content="Array vs List vs Dictionary" Grid.Column="1" Grid.Row="1" FontSize="15" Margin="10" HorizontalAlignment="Center" />
+        <RadioButton Content="Array vs List vs Dictionary" Grid.Column="1" Grid.Row="1" FontSize="15" Margin="10" HorizontalAlignment="Center" Name="arrayListDictionaryRadioBtn"/>
 
-        <Rectangle Grid.Row="1" Fill="LightSkyBlue" Grid.Column="2"/>
-        <RadioButton Content="Some strange text" Grid.Column="2" Grid.Row="1" FontSize="15" Margin="10" HorizontalAlignment="Center" />
+        <RadioButton Content="Some strange text" Grid.Column="2" Grid.Row="1" FontSize="15" Margin="10" HorizontalAlignment="Center" Name="strangeTxtRadioBtn"/>
 
 
-        <Button Content="Enter test" Grid.Row="2" Grid.ColumnSpan="3" Height="50" FontSize="15"/>
+        <Button Content="Enter test" Grid.Row="2" Grid.ColumnSpan="3" Height="50" FontSize="15" Name="TestChooserBtn" Click="TestChooserBtn_Click" Background="LightGreen" />
     </Grid>
 </Window>
