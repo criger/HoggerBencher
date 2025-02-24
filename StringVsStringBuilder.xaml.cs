@@ -1,4 +1,4 @@
-﻿using StringVsStringBuilderBencher;
+﻿using StringVsStringBuilderRaceFiles;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+
 
 namespace HoggerBencher
 {
