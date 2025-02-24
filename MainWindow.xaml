@@ -19,7 +19,7 @@
         </Grid.RowDefinitions>
 
         <Rectangle Grid.Row="0" Fill="LightBlue" Grid.ColumnSpan="3"/>
-        <Label Content="Please chhose a test - Its dangerous out there!" Grid.ColumnSpan="3" HorizontalAlignment="Center" FontSize="25"/>
+        <Label Content="Please choose a test - Its dangerous out there!" Grid.ColumnSpan="3" HorizontalAlignment="Center" FontSize="25"/>
 
         <RadioButton Content="String vs StringBuilder" IsChecked="True" Grid.Column="0" Grid.Row="1" FontSize="15" Margin="10" HorizontalAlignment="Center" Name="stringVsStringBuilderRadioBtn" />
 
