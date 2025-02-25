@@ -18,7 +18,7 @@ namespace StringVsStringBuilderRaceFiles
                 {
                     for (int i = 0; i < loops; i++)
                     {
-                        sb.Append("Round: ").Append(i).Append(System.Environment.NewLine);
+                        sb.Append("ABCD: ").Append(i).Append(System.Environment.NewLine);
                     }
 
                 }

@@ -18,7 +18,7 @@ namespace StringVsStringBuilderRaceFiles
                 {
                     for (int i = 0; i < loops; i++)
                     {
-                        bigString += "Round: " + i + System.Environment.NewLine;
+                        bigString += "ABCD: " + i + System.Environment.NewLine;
                     }
                 }
                 else
