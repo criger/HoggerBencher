@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,23 +18,21 @@ namespace ArrayListDictionaryRaceFiles
             }
             if (writeString)
             {
-                writeStringArray(numObjects, writeRandomValues);
+                await writeStringArray(numObjects, writeRandomValues);
             }
         }
 
-        public static CompletableFuture<Void> writeThenOverWriteArray(int objectsToWrite, boolean writeInt, boolean writeString)
+        public static async Task writeThenOverWriteArray(int objectsToWrite, bool writeInt, bool writeString)
         {
             if (writeInt)
             {
-                writeThenOverWriteIntArray(objectsToWrite);
+               await writeThenOverWriteIntArray(objectsToWrite);
 
             }
             if (writeString)
             {
-                writeThenOverWriteStringArray(objectsToWrite);
+                await writeThenOverWriteStringArray(objectsToWrite);
             }
-
-            return CompletableFuture.completedFuture(null);
         }
 
 
@@ -66,7 +65,7 @@ namespace ArrayListDictionaryRaceFiles
             {
                 for (int i = 0; i < numObjects; i++)
                 {
-                    stringArr[i] = getAlphaNumericString(25);
+                    stringArr[i] = HelperMethods.getAlphaNumericString(25);
                 }
             }
             else
@@ -78,37 +77,34 @@ namespace ArrayListDictionaryRaceFiles
             }
         }
 
-        static CompletableFuture<Void> writeThenOverWriteStringArray(int numObjects)
+        private static async Task writeThenOverWriteStringArray(int numObjects)
         {
-            String[] stringArr = new String[numObjects];
+            string[] stringArr = new string[numObjects];
 
             for (int i = 0; i < numObjects; i++)
             {
-                stringArr[i] = getAlphaNumericString(25);
+                stringArr[i] = HelperMethods.getAlphaNumericString(25);
             }
 
             for (int i = 0; i < numObjects; i++) // 1 mill kr spørsmål: ville det vært bedre å bruke stringArr.length() istedenfor numObjects?
             {
-                stringArr[i] = getAlphaNumericString(25);
+                stringArr[i] = HelperMethods.getAlphaNumericString(25);
             }
-            return CompletableFuture.completedFuture(null);
         }
 
-        static CompletableFuture<Void> writeThenOverWriteIntArray(int numObjects)
+        private static async Task writeThenOverWriteIntArray(int numObjects)
         {
             int[] intArr = new int[numObjects];
 
-            Random rand = new Random();
             for (int i = 0; i < numObjects; i++)
             {
-                intArr[i] = rand.nextInt(1000); // random number in range 0 to 999
+                intArr[i] = new Random().Next(1000); // random number in range 0 to 999
             }
 
             for (int i = 0; i < numObjects; i++)
             {
-                intArr[i] = rand.nextInt(1000); // random number in range 0 to 999
+                intArr[i] = new Random().Next(1000); // random number in range 0 to 999
             }
-            return CompletableFuture.completedFuture(null);
         }
     }
 }
