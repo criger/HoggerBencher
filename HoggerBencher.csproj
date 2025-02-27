@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="ArrayListDictionaryRaceFiles\ArrayListDictionaryRaceFiles.csproj" />
     <ProjectReference Include="StringVsStringBuilderRaceFiles\StringVsStringBuilderRaceFiles.csproj" />
   </ItemGroup>
 

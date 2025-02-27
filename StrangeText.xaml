@@ -7,7 +7,21 @@
         mc:Ignorable="d"
         Title="StrangeText" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Rectangle Grid.Row="0" Fill="LightBlue"/>
+        <Label Content="Can you see why something that may seem equal, clearly is not equal?" HorizontalAlignment="Center" FontSize="25"/>
         
+        <TextBlock Name="strangeSpacesTxtBlock" Width="auto" TextWrapping="Wrap" Grid.Column="0" Grid.Row="1"/>
+        <Button Name="revealAnswerBtn" Content="Reveal hint" Grid.Column="0" Grid.Row="2" Background="LightGreen" HorizontalAlignment="Center" VerticalAlignment="Center" Click="revealHintBtn_Click" />
+
 
     </Grid>
 </Window>

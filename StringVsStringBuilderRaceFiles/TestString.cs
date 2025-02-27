@@ -8,9 +8,9 @@ namespace StringVsStringBuilderRaceFiles
 {
     public class TestString
     {
-        public static Task<string> TestMemory(int loops, string value)
+        public async static Task<string> TestMemory(int loops, string value)
         {
-            return Task.Run(() =>
+            return await Task.Run(() =>
             {
                 string bigString = "";
 

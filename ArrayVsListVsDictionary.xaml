@@ -7,6 +7,37 @@
         mc:Ignorable="d"
         Title="ArrayVsListVsDictionary" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Rectangle Grid.Row="0" Fill="LightBlue" Grid.ColumnSpan="4"/>
+        <Label Content="Array vs List vs Dictionary - Who wins the race?" HorizontalAlignment="Center" FontSize="25" Grid.ColumnSpan="4"/>
+
+        <Label Content="Insert how many values?" Grid.Column="0" Grid.Row="1" Width="auto"/>
+        <TextBox Text="10000" MaxLines="1" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Width="auto" HorizontalAlignment="Stretch" Name="howManyValuesToInsertInput"/>
+
+        <Label Content="What type do you want to write?" Grid.Column="0" Grid.Row="2" Width="auto" VerticalAlignment="Center"/>
+        <RadioButton Content="Strings" IsChecked="True" Grid.Column="1" Grid.Row="2" Margin="10" HorizontalAlignment="Center" Name="writeStringsRadioBtn" VerticalAlignment="Center"/>
+        <RadioButton Content="Integers" Grid.Column="2" Grid.Row="2" Margin="10" HorizontalAlignment="Center" Name="writeIntsRadioBtn" VerticalAlignment="Center"/>
+
+        <Button Content="Start test" Grid.Row="1" Grid.Column="3" Grid.RowSpan="2" Name="classTypeChooserBtn" Click="startArrayListDictTestBtn_Click" Background="LightGreen" />
+
+        <TextBox Grid.ColumnSpan="4" Grid.Row="4" Text="The performance result between array, List and Dictionary will be displayed here" 
+                 TextWrapping="Wrap" Width="auto" Name="arrayVsListVsDictionaryResult" IsReadOnly="True" 
+                 VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto"
+                 MaxLines="100" />
+
+
+
     </Grid>
 </Window>

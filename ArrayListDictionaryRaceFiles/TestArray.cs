@@ -38,72 +38,87 @@ namespace ArrayListDictionaryRaceFiles
 
         private static async Task WriteIntArray(int numObjects, bool feedRandomInts)
         {
-            int[] intArr = new int[numObjects];
+            await Task.Run(() =>
+            {
+                int[] intArr = new int[numObjects];
 
-            if (feedRandomInts)
-            {
-                for (int i = 0; i < numObjects; i++)
+                if (feedRandomInts)
                 {
-                    intArr[i] = new Random().Next(1000); // random number in range 0 to 999
+                    for (int i = 0; i < numObjects; i++)
+                    {
+                        intArr[i] = new Random().Next(1000); // random number in range 0 to 999
+                    }
                 }
-            }
-            else
-            {
-                for (int i = 0; i < numObjects; i++)
+                else
                 {
-                    intArr[i] = i;
+                    for (int i = 0; i < numObjects; i++)
+                    {
+                        intArr[i] = i;
+                    }
                 }
-            }
+            });
         }
 
         private static async Task WriteStringArray(int numObjects, bool feedRandomText)
         {
-            string[] stringArr = new string[numObjects];
+            await Task.Run(() =>
+            {
+                string[] stringArr = new string[numObjects];
 
-            if (feedRandomText)
-            {
-                for (int i = 0; i < numObjects; i++)
+                if (feedRandomText)
                 {
-                    stringArr[i] = HelperMethods.GetAlphaNumericString(25);
+                    for (int i = 0; i < numObjects; i++)
+                    {
+                        stringArr[i] = HelperMethods.GetAlphaNumericString(25);
+                    }
                 }
-            }
-            else
-            {
-                for (int i = 0; i < numObjects; i++)
+                else
                 {
-                    stringArr[i] = i + "";
+                    for (int i = 0; i < numObjects; i++)
+                    {
+                        stringArr[i] = i + "";
+                    }
                 }
-            }
+            });
         }
 
         private static async Task WriteThenOverWriteStringArray(int numObjects)
         {
-            string[] stringArr = new string[numObjects];
 
-            for (int i = 0; i < numObjects; i++)
+            await Task.Run(() =>
             {
-                stringArr[i] = HelperMethods.GetAlphaNumericString(25);
-            }
+                string[] stringArr = new string[numObjects];
 
-            for (int i = 0; i < numObjects; i++) // 1 mill kr spørsmål: ville det vært bedre å bruke stringArr.length() istedenfor numObjects?
-            {
-                stringArr[i] = HelperMethods.GetAlphaNumericString(25);
-            }
+                for (int i = 0; i < numObjects; i++)
+                {
+                    stringArr[i] = HelperMethods.GetAlphaNumericString(25);
+                }
+
+                for (int i = 0; i < numObjects; i++) // 1 mill kr spørsmål: ville det vært bedre å bruke stringArr.length() istedenfor numObjects?
+                {
+                    stringArr[i] = HelperMethods.GetAlphaNumericString(25);
+                }
+
+            });
         }
 
         private static async Task WriteThenOverWriteIntArray(int numObjects)
         {
-            int[] intArr = new int[numObjects];
-
-            for (int i = 0; i < numObjects; i++)
+            await Task.Run(() =>
             {
-                intArr[i] = new Random().Next(1000); // random number in range 0 to 999
-            }
+                int[] intArr = new int[numObjects];
 
-            for (int i = 0; i < numObjects; i++)
-            {
-                intArr[i] = new Random().Next(1000); // random number in range 0 to 999
-            }
+                for (int i = 0; i < numObjects; i++)
+                {
+                    intArr[i] = new Random().Next(1000); // random number in range 0 to 999
+                }
+
+                for (int i = 0; i < numObjects; i++)
+                {
+                    intArr[i] = new Random().Next(1000); // random number in range 0 to 999
+                }
+
+            });
         }
     }
 }

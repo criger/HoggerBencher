@@ -39,79 +39,89 @@ namespace ArrayListDictionaryRaceFiles
 
         private static async Task WriteThenOverWriteStringList(int objectsToWrite)
         {
-            var stringList = new List<string>();
-
-            for (int i = 0; i < objectsToWrite; i++)
+            await Task.Run(() =>
             {
-                stringList.Add(HelperMethods.GetAlphaNumericString(5));
-            }
+                var stringList = new List<string>();
 
-            for (int i = 0; i < objectsToWrite; i++) // 1 mill kr spørsmål: ville det vært bedre å bruke stringArr.length() istedenfor numObjects?
-            {
-                stringList[i] = HelperMethods.GetAlphaNumericString(5);
-            }
+                for (int i = 0; i < objectsToWrite; i++)
+                {
+                    stringList.Add(HelperMethods.GetAlphaNumericString(5));
+                }
 
-
-
+                for (int i = 0; i < objectsToWrite; i++) // 1 mill kr spørsmål: ville det vært bedre å bruke stringArr.length() istedenfor numObjects?
+                {
+                    stringList[i] = HelperMethods.GetAlphaNumericString(5);
+                }
+            });
         }
 
         private static async Task WriteThenOverWriteIntList(int objectsToWrite)
         {
-            var intList = new List<int>();
-
-            for (int i = 0; i < objectsToWrite; i++)
+            await Task.Run(() =>
             {
-                intList.Add(new Random().Next(1000)); // random number in range 0 to 999
-            }
+                var intList = new List<int>();
 
-            for (int i = 0; i < objectsToWrite; i++)
-            {
-                intList[i] = new Random().Next(1000);
-            }
-        }
-
-
-        public static async Task WriteStringList(int numObjects, bool writeRandomValues)
-        {
-            var stringList = new List<string>();
-
-
-            if (writeRandomValues)
-            {
-                for (int i = 0; i < numObjects; i++)
-                {
-                    stringList.Add(HelperMethods.GetAlphaNumericString(5));
-                }
-            }
-            else
-            {
-                for (int i = 0; i < numObjects; i++)
-                {
-                    stringList.Add(i + "");
-                }
-            }
-
-        }
-
-        public static async Task WriteIntList(int numObjects, bool writeRandomValues)
-        {
-            var intList = new List<int>();
-
-            if (writeRandomValues)
-            {
-                for (int i = 0; i < numObjects; i++)
+                for (int i = 0; i < objectsToWrite; i++)
                 {
                     intList.Add(new Random().Next(1000)); // random number in range 0 to 999
                 }
-            }
-            else
-            {
-                for (int i = 0; i < numObjects; i++)
-                {
-                    intList.Add(i);
-                }
-            }
 
+                for (int i = 0; i < objectsToWrite; i++)
+                {
+                    intList[i] = new Random().Next(1000);
+                }
+
+            });
+        }
+
+
+        private static async Task WriteStringList(int numObjects, bool writeRandomValues)
+        {
+            await Task.Run(() =>
+            {
+                var stringList = new List<string>();
+
+
+                if (writeRandomValues)
+                {
+                    for (int i = 0; i < numObjects; i++)
+                    {
+                        stringList.Add(HelperMethods.GetAlphaNumericString(5));
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < numObjects; i++)
+                    {
+                        stringList.Add(i + "");
+                    }
+                }
+
+            });
+
+        }
+
+        private static async Task WriteIntList(int numObjects, bool writeRandomValues)
+        {
+            await Task.Run(() =>
+            {
+                var intList = new List<int>();
+
+                if (writeRandomValues)
+                {
+                    for (int i = 0; i < numObjects; i++)
+                    {
+                        intList.Add(new Random().Next(1000)); // random number in range 0 to 999
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < numObjects; i++)
+                    {
+                        intList.Add(i);
+                    }
+                }
+            });
 
         }
     }

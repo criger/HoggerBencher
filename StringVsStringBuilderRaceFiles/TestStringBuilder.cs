@@ -8,9 +8,9 @@ namespace StringVsStringBuilderRaceFiles
 {
     public class TestStringBuilder
     {
-        public static Task<StringBuilder> TestMemory(int loops, string value)
+        public async static Task<StringBuilder> TestMemory(int loops, string value)
         {
-            return Task.Run(() =>
+            return await Task.Run(() =>
             {
                 StringBuilder sb = new StringBuilder();
 
@@ -29,7 +29,6 @@ namespace StringVsStringBuilderRaceFiles
                         sb.Append(i).Append(" --> ").Append(value).Append(System.Environment.NewLine);
                     }
                 }
-
                 return sb;
             });
         }

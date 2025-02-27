@@ -15,16 +15,15 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Label Content="How many loops?" Grid.Column="0" Grid.Row="0" Width="auto"/>
         <TextBox Text="10000" MaxLines="1" Grid.Column="1" Grid.Row="0" Width="auto" HorizontalAlignment="Stretch" Name="numOfLoopsInput"/>
         <Button Content="Start test" Grid.Column="2" Grid.Row="0" Background="LightSkyBlue" Name="startStringVsStringBuilderTestBtn" Click="StartStringVsStringBuilderTestBtn_Click"/>
 
-        <TextBox Grid.ColumnSpan="3" Grid.Row="2" Text="The performance test between String and tringBuilder will be displayed here" 
+        <TextBox Grid.ColumnSpan="3" Grid.Row="1" Text="The performance result between String and StringBuilder will be displayed here." 
                  TextWrapping="Wrap" Width="auto" Name="stringVsStringBuilderResult" IsReadOnly="True" 
-                 VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                 VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto"
                  MaxLines="100"/>
 
     </Grid>
