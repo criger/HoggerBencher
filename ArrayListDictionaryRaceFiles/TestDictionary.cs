@@ -10,52 +10,51 @@ namespace ArrayListDictionaryRaceFiles
 {
     public class TestDictionary
     {
-        public static async Task writeToDict(int numObjects, bool writeString, bool writeInt, bool writeRandomValues)
+        public static async Task WriteToDict(int numObjects, bool WriteString, bool WriteInt, bool WriteRandomValues)
         {
-            if (writeInt)
+            if (WriteInt)
             {
-                await writeIntDict(numObjects, writeRandomValues);
+                await WriteIntDict(numObjects, WriteRandomValues);
             }
-            if (writeString)
+            if (WriteString)
             {
-                await writeStringDict(numObjects, writeRandomValues);
+                await WriteStringDict(numObjects, WriteRandomValues);
             }
         }
 
-        public static async Task writeThenOverWriteDict(int objectsToWrite, bool writeInt, bool writeString)
+        public static async Task WriteThenOverWriteDict(int objectsToWrite, bool WriteInt, bool WriteString)
         {
-            if (writeInt)
+            if (WriteInt)
             {
-                await writeThenOverWriteIntDict(objectsToWrite);
+                await WriteThenOverWriteIntDict(objectsToWrite);
 
             }
-            if (writeString)
+            if (WriteString)
             {
-                await writeThenOverWriteStringDict(objectsToWrite);
+                await WriteThenOverWriteStringDict(objectsToWrite);
             }
         }
 
-        private static async Task writeThenOverWriteStringDict(int objectsToWrite)
+        private static async Task WriteThenOverWriteStringDict(int objectsToWrite)
         {
             var stringDict = new Dictionary<int, string>();
 
             for (int i = 0; i < objectsToWrite; i++)
             {
-                stringDict.Add(i, HelperMethods.getAlphaNumericString(5));
+                stringDict.Add(i, HelperMethods.GetAlphaNumericString(5));
             }
 
             for (int i = 0; i < objectsToWrite; i++) // 1 mill kr spørsmål: ville det vært bedre å bruke stringArr.length() istedenfor numObjects?
             {
-                stringDict.Add(i, HelperMethods.getAlphaNumericString(5));
+                stringDict[i] = HelperMethods.GetAlphaNumericString(5);
             }
 
         }
 
-        private static async Task writeThenOverWriteIntDict(int objectsToWrite)
+        private static async Task WriteThenOverWriteIntDict(int objectsToWrite)
         {
             var intDict = new Dictionary<int, int>();
 
-            Random rand = new Random();
             for (int i = 0; i < objectsToWrite; i++)
             {
                 intDict.Add(i, new Random().Next(1000)); // random number in range 0 to 999
@@ -63,21 +62,21 @@ namespace ArrayListDictionaryRaceFiles
 
             for (int i = 0; i < objectsToWrite; i++)
             {
-                intDict.Add(i, new Random().Next(1000)); // random number in range 0 to 999
+                intDict[i] = new Random().Next(1000);
             }
         }
 
 
-        public static async Task writeStringDict(int numObjects, bool writeRandomValues)
+        public static async Task WriteStringDict(int numObjects, bool WriteRandomValues)
         {
             var stringDict = new Dictionary<int, string>();
 
 
-            if (writeRandomValues)
+            if (WriteRandomValues)
             {
                 for (int i = 0; i < numObjects; i++)
                 {
-                    stringDict.Add(i, HelperMethods.getAlphaNumericString(5));
+                    stringDict.Add(i, HelperMethods.GetAlphaNumericString(5));
                 }
             }
             else
@@ -89,11 +88,11 @@ namespace ArrayListDictionaryRaceFiles
             }
         }
 
-        public static async Task writeIntDict(int numObjects, bool writeRandomValues)
+        public static async Task WriteIntDict(int numObjects, bool WriteRandomValues)
         {
             var intDict = new Dictionary<int, int>();
 
-            if (writeRandomValues)
+            if (WriteRandomValues)
             {
                 Random rand = new Random();
                 for (int i = 0; i < numObjects; i++)

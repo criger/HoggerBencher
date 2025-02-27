@@ -9,7 +9,7 @@ namespace Helpers
     public class HelperMethods
     {
         // function to generate a random string of length n
-        public static String getAlphaNumericString(int n)
+        public static String GetAlphaNumericString(int n)
         {
 
             // choose a Character random from this String

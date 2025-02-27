@@ -10,42 +10,41 @@ namespace ArrayListDictionaryRaceFiles
 {
     public class TestArrays
     {
-        public static async Task writeToArray(int numObjects, bool writeString, bool writeInt, bool writeRandomValues)
+        public static async Task WriteToArray(int numObjects, bool writeString, bool writeInt, bool writeRandomValues)
         {
             if (writeInt)
             {
-                await writeIntArray(numObjects, writeRandomValues);
+                await WriteIntArray(numObjects, writeRandomValues);
             }
             if (writeString)
             {
-                await writeStringArray(numObjects, writeRandomValues);
+                await WriteStringArray(numObjects, writeRandomValues);
             }
         }
 
-        public static async Task writeThenOverWriteArray(int objectsToWrite, bool writeInt, bool writeString)
+        public static async Task WriteThenOverWriteArray(int objectsToWrite, bool writeInt, bool writeString)
         {
             if (writeInt)
             {
-               await writeThenOverWriteIntArray(objectsToWrite);
+               await WriteThenOverWriteIntArray(objectsToWrite);
 
             }
             if (writeString)
             {
-                await writeThenOverWriteStringArray(objectsToWrite);
+                await WriteThenOverWriteStringArray(objectsToWrite);
             }
         }
 
 
-        private static async Task writeIntArray(int numObjects, bool feedRandomInts)
+        private static async Task WriteIntArray(int numObjects, bool feedRandomInts)
         {
             int[] intArr = new int[numObjects];
 
             if (feedRandomInts)
             {
-                Random rand = new Random();
                 for (int i = 0; i < numObjects; i++)
                 {
-                    intArr[i] = rand.Next(1000); // random number in range 0 to 999
+                    intArr[i] = new Random().Next(1000); // random number in range 0 to 999
                 }
             }
             else
@@ -57,7 +56,7 @@ namespace ArrayListDictionaryRaceFiles
             }
         }
 
-        private static async Task writeStringArray(int numObjects, bool feedRandomText)
+        private static async Task WriteStringArray(int numObjects, bool feedRandomText)
         {
             string[] stringArr = new string[numObjects];
 
@@ -65,7 +64,7 @@ namespace ArrayListDictionaryRaceFiles
             {
                 for (int i = 0; i < numObjects; i++)
                 {
-                    stringArr[i] = HelperMethods.getAlphaNumericString(25);
+                    stringArr[i] = HelperMethods.GetAlphaNumericString(25);
                 }
             }
             else
@@ -77,22 +76,22 @@ namespace ArrayListDictionaryRaceFiles
             }
         }
 
-        private static async Task writeThenOverWriteStringArray(int numObjects)
+        private static async Task WriteThenOverWriteStringArray(int numObjects)
         {
             string[] stringArr = new string[numObjects];
 
             for (int i = 0; i < numObjects; i++)
             {
-                stringArr[i] = HelperMethods.getAlphaNumericString(25);
+                stringArr[i] = HelperMethods.GetAlphaNumericString(25);
             }
 
             for (int i = 0; i < numObjects; i++) // 1 mill kr spørsmål: ville det vært bedre å bruke stringArr.length() istedenfor numObjects?
             {
-                stringArr[i] = HelperMethods.getAlphaNumericString(25);
+                stringArr[i] = HelperMethods.GetAlphaNumericString(25);
             }
         }
 
-        private static async Task writeThenOverWriteIntArray(int numObjects)
+        private static async Task WriteThenOverWriteIntArray(int numObjects)
         {
             int[] intArr = new int[numObjects];
 
