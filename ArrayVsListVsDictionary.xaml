@@ -18,6 +18,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Rectangle Grid.Row="0" Fill="LightBlue" Grid.ColumnSpan="4"/>
@@ -30,14 +31,25 @@
         <RadioButton Content="Strings" IsChecked="True" Grid.Column="1" Grid.Row="2" Margin="10" HorizontalAlignment="Center" Name="writeStringsRadioBtn" VerticalAlignment="Center"/>
         <RadioButton Content="Integers" Grid.Column="2" Grid.Row="2" Margin="10" HorizontalAlignment="Center" Name="writeIntsRadioBtn" VerticalAlignment="Center"/>
 
-        <Button Content="Start test" Grid.Row="1" Grid.Column="3" Grid.RowSpan="2" Name="classTypeChooserBtn" Click="startArrayListDictTestBtn_Click" Background="LightGreen" />
+        <Button Content="Start test" Grid.Row="1" Grid.Column="4" Grid.RowSpan="2" Name="classTypeChooserBtn" Click="startArrayListDictTestBtn_Click" Background="LightGreen" />
 
-        <TextBox Grid.ColumnSpan="4" Grid.Row="4" Text="The performance result between array, List and Dictionary will be displayed here" 
+        <TextBox Grid.ColumnSpan="4" Grid.Row="3" Text="The performance result between array, List and Dictionary will be displayed here" 
                  TextWrapping="Wrap" Width="auto" Name="arrayVsListVsDictionaryResult" IsReadOnly="True" 
                  VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto"
                  MaxLines="100" />
 
-
-
+        <Grid Grid.Row="4" Grid.ColumnSpan="4" Visibility="Collapsed" Name="progressGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Benchmark in progress, please wait..." Grid.Row="0" Grid.Column="0"/>
+            <ProgressBar Minimum="0" Maximum="100" Value="0" Name="pbStatus" Height="25" Grid.Row="0" Grid.Column="1"/>
+            <TextBlock Text="{Binding ElementName=pbStatus, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1"/>
+        </Grid>
+        
     </Grid>
 </Window>
