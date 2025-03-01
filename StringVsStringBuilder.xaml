@@ -15,6 +15,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Label Content="How many loops?" Grid.Column="0" Grid.Row="0" Width="auto"/>
@@ -25,6 +26,20 @@
                  TextWrapping="Wrap" Width="auto" Name="stringVsStringBuilderResult" IsReadOnly="True" 
                  VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto"
                  MaxLines="100"/>
+
+        <Grid Grid.Row="2" Grid.ColumnSpan="3" Visibility="Collapsed" Name="progressGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Benchmark in progress, please wait..." Grid.Row="0" Grid.Column="0"/>
+            <ProgressBar Minimum="0" Maximum="100" Value="0" Name="pbStringVsStringBuilder" Height="25" Grid.Row="0" Grid.Column="1"/>
+            <TextBlock Text="{Binding ElementName=pbStringVsStringBuilder, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1"/>
+        </Grid>
+
 
     </Grid>
 </Window>
