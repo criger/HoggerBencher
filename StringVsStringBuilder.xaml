@@ -20,7 +20,7 @@
 
         <Label Content="How many loops?" Grid.Column="0" Grid.Row="0" Width="auto"/>
         <TextBox Text="10000" MaxLines="1" Grid.Column="1" Grid.Row="0" Width="auto" HorizontalAlignment="Stretch" Name="numOfLoopsInput"/>
-        <Button Content="Start test" Grid.Column="2" Grid.Row="0" Background="LightSkyBlue" Name="startStringVsStringBuilderTestBtn" Click="StartStringVsStringBuilderTestBtn_Click"/>
+        <Button Content="Start test" Grid.Column="2" Grid.Row="0" Background="LightGreen" Name="startStringVsStringBuilderTestBtn" Click="StartStringVsStringBuilderTestBtn_Click"/>
 
         <TextBox Grid.ColumnSpan="3" Grid.Row="1" Text="The performance result between String and StringBuilder will be displayed here." 
                  TextWrapping="Wrap" Width="auto" Name="stringVsStringBuilderResult" IsReadOnly="True" 

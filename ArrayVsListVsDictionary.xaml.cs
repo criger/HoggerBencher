@@ -45,7 +45,7 @@ namespace HoggerBencher
 
         }
 
-        private void worker_DoWork(object? sender, DoWorkEventArgs e)
+        private async void worker_DoWork(object? sender, DoWorkEventArgs e)
         {
             var gcMemoryInfo = GC.GetGCMemoryInfo();
             var installedMemoryBytes = gcMemoryInfo.TotalAvailableMemoryBytes;  // / 1024;
@@ -95,12 +95,12 @@ namespace HoggerBencher
 
                     if (stringRadioBtnChecked == true)
                     {
-                        PerformStringTest(amountValuesToInsert, bytesToAllocate);
+                        await PerformStringTest(amountValuesToInsert, bytesToAllocate);
                     }
 
                     if (intRadioBtnChecked == true)
                     {
-                        PerformIntTest(amountValuesToInsert, bytesToAllocate);
+                        await PerformIntTest(amountValuesToInsert, bytesToAllocate);
                     }
 
                 }

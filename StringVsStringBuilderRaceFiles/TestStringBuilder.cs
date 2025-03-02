@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace StringVsStringBuilderRaceFiles
                 {
                     for (int i = 0; i < loops; i++)
                     {
-                        sb.Append("ABCD: ").Append(i).Append(System.Environment.NewLine);
+                        sb.Append(HelperMethods.GetAlphaNumericString(25)).Append(System.Environment.NewLine);
                     }
 
                 }

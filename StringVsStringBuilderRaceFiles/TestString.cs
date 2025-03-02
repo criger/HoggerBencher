@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Helpers;
 
 namespace StringVsStringBuilderRaceFiles
 {
@@ -18,7 +14,7 @@ namespace StringVsStringBuilderRaceFiles
                 {
                     for (int i = 0; i < loops; i++)
                     {
-                        bigString += "ABCD: " + i + System.Environment.NewLine;
+                        bigString += HelperMethods.GetAlphaNumericString(25) + System.Environment.NewLine;
                     }
                 }
                 else
@@ -28,6 +24,7 @@ namespace StringVsStringBuilderRaceFiles
                         bigString += i + " --> " + value + System.Environment.NewLine;
                     }
                 }
+
                 return bigString;
             });
         }

@@ -25,9 +25,9 @@ namespace HoggerBencher
             stringVsStringBuilderResult.Text += System.Environment.NewLine;
             stringVsStringBuilderResult.Text += "NOTE:";
             stringVsStringBuilderResult.Text += System.Environment.NewLine;
-            stringVsStringBuilderResult.Text += "For performance reasons, the String test is limited to only 20 000 000 loops.";
+            stringVsStringBuilderResult.Text += "For performance reasons, the String test is limited to only 30 000 loops.";
             stringVsStringBuilderResult.Text += System.Environment.NewLine;
-            stringVsStringBuilderResult.Text += "If you type a value bigger than 20 000 000, it will default to 20 000 000.";
+            stringVsStringBuilderResult.Text += "If you type a value bigger than 30 000, it will default to 30 000.";
             stringVsStringBuilderResult.Text += System.Environment.NewLine;
             stringVsStringBuilderResult.Text += "BUT.... the StringBuilder test will be run with the value you typed :-)";
         }
@@ -55,7 +55,7 @@ namespace HoggerBencher
 
         }
 
-        private void worker_DoWork(object? sender, DoWorkEventArgs e)
+        private async void worker_DoWork(object? sender, DoWorkEventArgs e)
         {
             var gcMemoryInfo = GC.GetGCMemoryInfo();
             var installedMemoryBytes = gcMemoryInfo.TotalAvailableMemoryBytes;
@@ -79,13 +79,13 @@ namespace HoggerBencher
                         }
                     ));
 
-                    var numLoopsString = loops > 20000000 ? 20000000 : loops;
+                    var numLoopsString = loops > 30000 ? 30000 : loops;
 
                     var stopwatch = new Stopwatch();
-                    stopwatch.Start();
 
+                    stopwatch.Start();
                     long beforeStringTest = Process.GetCurrentProcess().WorkingSet64;
-                    _ = TestString.TestMemory(numLoopsString, null);
+                    _ = await TestString.TestMemory(numLoopsString, null);
                     long afterStringTest = Process.GetCurrentProcess().WorkingSet64;
                     stopwatch.Stop();
                     var stringTestTotalTime = stopwatch.Elapsed.TotalMilliseconds;
@@ -94,7 +94,7 @@ namespace HoggerBencher
 
                     stopwatch.Restart();
                     long beforeSBTest = Process.GetCurrentProcess().WorkingSet64;
-                    _ = TestStringBuilder.TestMemory(loops, null);
+                    _ = await TestStringBuilder.TestMemory(loops, null);
                     long afterSBTest = Process.GetCurrentProcess().WorkingSet64;
                     stopwatch.Stop();
                     var stringBuilderTestTotalTime = stopwatch.Elapsed.TotalMilliseconds;
@@ -112,7 +112,7 @@ namespace HoggerBencher
                     (
                         () =>
                         {
-                            stringVsStringBuilderResult.Text = "String test wrote 'ABCD' " + numLoopsString + " times with a newline after each iteration." + System.Environment.NewLine
+                            stringVsStringBuilderResult.Text = "String test wrote a random 25 character long string " + numLoopsString + " times with a newline after each iteration." + System.Environment.NewLine
                                                              + "Further on, the String test consumed " + stringTestUsedMem + " bytes (" + stringTestUsedMem / 1000 + " KB or " + Convert.ToDecimal(stringTestUsedMem) / Convert.ToDecimal(1000000) + " MB...!)";
                             stringVsStringBuilderResult.Text += System.Environment.NewLine;
                             stringVsStringBuilderResult.Text += "The test ran in " + stringTestTotalTime + " ms";
@@ -120,7 +120,7 @@ namespace HoggerBencher
                             stringVsStringBuilderResult.Text += System.Environment.NewLine;
                             stringVsStringBuilderResult.Text += System.Environment.NewLine;
 
-                            stringVsStringBuilderResult.Text += "StringBuilder test wrote 'ABCD' " + loops + " times with a newline after each iteration." + System.Environment.NewLine
+                            stringVsStringBuilderResult.Text += "StringBuilder test wrote a random 25 character long string " + loops + " times with a newline after each iteration." + System.Environment.NewLine
                                                              + "Further on, the StringBuilder test consumed " + sbTestUsedMem + " bytes (" + sbTestUsedMem / 1000 + " KB or " + Convert.ToDecimal(sbTestUsedMem) / Convert.ToDecimal(1000000) + " MB...!)";
                             stringVsStringBuilderResult.Text += System.Environment.NewLine;
                             stringVsStringBuilderResult.Text += "The test ran in " + stringBuilderTestTotalTime + " ms";
@@ -148,6 +148,8 @@ namespace HoggerBencher
                         }
                     ));
 
+                    if (GCSettings.LatencyMode == GCLatencyMode.NoGCRegion)
+                        GC.EndNoGCRegion();
 
                 }
                 catch (FormatException fe)
@@ -157,11 +159,11 @@ namespace HoggerBencher
 
                 finally
                 {
-                    if (GCSettings.LatencyMode == GCLatencyMode.NoGCRegion)
-                        GC.EndNoGCRegion();
                 }
-
             }
+            if (GCSettings.LatencyMode == GCLatencyMode.NoGCRegion)
+                GC.EndNoGCRegion();
+
         }
         public async void updateProgressBarStringVsStringBuilder(int value)
         {
