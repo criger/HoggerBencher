@@ -33,4 +33,4 @@ Upon starting the tests, a quarter of available memory is "saved" from being res
 E.g:<br/>
 You have 10 GB RAM available of 16 GB total.<br/>
 In this case, 2.5 GB of RAM will be marked "safe" to be used by the program.
-Immediately after the test is finished, GC ___is instructed to run___.
+Immediately after the test is finished, <br/>GC ___is instructed to run___.
