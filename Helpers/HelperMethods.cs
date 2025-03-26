@@ -61,5 +61,24 @@ namespace Helpers
             return myString;
         }
 
+        public static long[] GetBigArraySorted(long arraySize)
+        {
+            long[] numbers = new long[arraySize];
+
+            for(long i = 0; i < arraySize; i++)
+            {
+                // feeding the array with random values up to the same value as arraySize.
+                // note that duplicate values can occour.
+
+                numbers[i] = new Random().NextInt64(arraySize);
+            }
+
+            // sorts the array from smallest to biggest number
+            Array.Sort(numbers);
+
+            return numbers;
+        }
+
+
     }
 }
