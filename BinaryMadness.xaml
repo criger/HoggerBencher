@@ -23,10 +23,10 @@
         <Label Content="Binary madness or worth a Nobel prize?" HorizontalAlignment="Center" FontSize="25" Grid.ColumnSpan="4"/>
 
         <Label Content="How many numbers should the array contain?" Grid.Column="0" Grid.Row="1" Width="auto" VerticalAlignment="Center"/>
-        <TextBox Text="10000000" MaxLines="1" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="1" Width="auto" HorizontalAlignment="Stretch" Name="howManyNumbersInArrayInput" />
+        <TextBox Text="10000000" MaxLines="1" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="1" Width="auto" HorizontalAlignment="Stretch" Name="howManyNumbersInArrayInput" PreviewTextInput="ValidateInput_OnlyNumbers" />
 
         <Label Content="Number to find" Grid.Column="0" Grid.Row="2" Width="auto" VerticalAlignment="Center" />
-        <TextBox Text="100000" MaxLines="1" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="1" Width="auto" HorizontalAlignment="Stretch" Name="numberToFindInput"/>
+        <TextBox Text="100000" MaxLines="1" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="1" Width="auto" HorizontalAlignment="Stretch" Name="numberToFindInput" PreviewTextInput="ValidateInput_OnlyNumbers" />
 
         <RadioButton Content="Madness search" IsChecked="True" Grid.Column="2" Grid.Row="1" FontSize="15" Margin="10" HorizontalAlignment="Left" Name="madnessSearchRadioBtn"  />
         <RadioButton Content="Normal binary search" Grid.Column="2" Grid.Row="2" FontSize="15" Margin="10" HorizontalAlignment="Left" Name="normalSearchRadioBtn"/>

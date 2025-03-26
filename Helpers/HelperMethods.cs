@@ -65,18 +65,35 @@ namespace Helpers
         {
             long[] numbers = new long[arraySize];
 
+            Random rand = new Random();
+
             for(long i = 0; i < arraySize; i++)
             {
                 // feeding the array with random values up to the same value as arraySize.
                 // note that duplicate values can occour.
 
-                numbers[i] = new Random().NextInt64(arraySize);
+                numbers[i] = rand.NextInt64(arraySize);
             }
 
             // sorts the array from smallest to biggest number
             Array.Sort(numbers);
 
             return numbers;
+        }
+
+        public static long GetNumberPosInArray(long valueToFind, long[] arrayToSearch)
+        {
+            return Array.BinarySearch(arrayToSearch, valueToFind);
+        }
+
+        public static List<long[]> GetListOfArrays(long[] arrayToDivide)
+        {
+
+            //TODO
+            // Get amount of cpu threads and divide arrayToDivide on X amounts of threads (minus main thread).
+            // return a list of all the new and smaller arrays.
+
+            return null;
         }
 
 
