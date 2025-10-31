@@ -41,7 +41,7 @@ namespace ArrayListDictionaryRaceFiles
                     stringDict.Add(i, HelperMethods.GetAlphaNumericString(5));
                 }
 
-                for (int i = 0; i < objectsToWrite; i++) // 1 mill kr spørsmål: ville det vært bedre å bruke stringArr.length() istedenfor numObjects?
+                for (int i = 0; i < objectsToWrite; i++) // 1 mill kr spørsmål: ville det vært bedre å bruke stringArr.length() istedenfor objectsToWrite?
                 {
                     stringDict[i] = HelperMethods.GetAlphaNumericString(5);
                 }

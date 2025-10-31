@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Runtime;
 using System.Windows;
 using System.Windows.Threading;
+using ArrayListDictionaryRaceFiles_TestLinkedList = ArrayListDictionaryRaceFiles.TestLinkedList;
 
 namespace HoggerBencher
 {
@@ -125,6 +126,7 @@ namespace HoggerBencher
             var stopwatch = new Stopwatch();
 
             //write random strings to an array
+            updateTestInfo("Benchmark in progress, writing random strings to an array...");
             stopwatch.Start();
             long beforeWriteStringToArray = Process.GetCurrentProcess().WorkingSet64;
             await TestArrays.WriteToArray(amountValuesToInsert, true, false, true);
@@ -135,6 +137,7 @@ namespace HoggerBencher
             updateProgressBar(15);
 
             //write random strings to an array and then overwrite all values
+            updateTestInfo("Benchmark in progress, writing random strings to an array then overwriting all values...");
             stopwatch.Restart();
             long beforeOverwriteStringToArray = Process.GetCurrentProcess().WorkingSet64;
             await TestArrays.WriteThenOverWriteArray(amountValuesToInsert, false, true);
@@ -145,6 +148,7 @@ namespace HoggerBencher
             updateProgressBar(35);
 
             //write random strings to a List
+            updateTestInfo("Benchmark in progress, writing random strings to a List...");
             stopwatch.Restart();
             long beforeWriteStringToList = Process.GetCurrentProcess().WorkingSet64;
             await TestList.WriteToList(amountValuesToInsert, true, false, true);
@@ -155,6 +159,7 @@ namespace HoggerBencher
             updateProgressBar(50);
 
             //write random strings to a List, then overwrite all values with random strings
+            updateTestInfo("Benchmark in progress, writing random strings to a List then overwriting all values...");
             stopwatch.Restart();
             long beforeOverwriteStringToList = Process.GetCurrentProcess().WorkingSet64;
             await TestList.WriteThenOverWriteList(amountValuesToInsert, false, true);
@@ -165,6 +170,7 @@ namespace HoggerBencher
             updateProgressBar(65);
 
             //write random strings to a Dictionary
+            updateTestInfo("Benchmark in progress, writing random strings to a Dictionary...");
             stopwatch.Restart();
             long beforeWriteStringToDict = Process.GetCurrentProcess().WorkingSet64;
             await TestDictionary.WriteStringDict(amountValuesToInsert, true);
@@ -174,8 +180,8 @@ namespace HoggerBencher
 
             updateProgressBar(80);
 
-
             //write random strings to a Dictionary, then overwrite all values with random strings
+            updateTestInfo("Benchmark in progress, writing random strings to a Dictionary then overwriting all values...");
             stopwatch.Restart();
             long beforeOverwriteStringToDict = Process.GetCurrentProcess().WorkingSet64;
             await TestDictionary.WriteThenOverWriteDict(amountValuesToInsert, false, true);
@@ -183,7 +189,29 @@ namespace HoggerBencher
             stopwatch.Stop();
             var overWriteStringToDictTotalTime = stopwatch.Elapsed.TotalMilliseconds;
 
+            updateProgressBar(90);
+            
+            /* Start LinkedList test */
+            updateTestInfo("Benchmark in progress, writing random strings to a LinkedList...");
+            stopwatch.Restart();
+            long beforeWriteStringToLinkedList = Process.GetCurrentProcess().WorkingSet64;
+            await TestLinkedList.WriteStringLinkedListAddMiddle(amountValuesToInsert, true);
+            long afterWriteStringToLinkedList = Process.GetCurrentProcess().WorkingSet64;
+            stopwatch.Stop();
+            var writeStringToLinkedListTotalTime = stopwatch.Elapsed.TotalMilliseconds;
+
+            updateProgressBar(95);
+            
+            stopwatch.Restart();
+            updateTestInfo("Benchmark in progress, writing random strings to a LinkedList then overwriting all values...");
+            long beforeOverwriteStringToLinkedList = Process.GetCurrentProcess().WorkingSet64;
+            await TestLinkedList.WriteThenOverWriteLinkedList(amountValuesToInsert, false, true);
+            long afterOverwriteStringToLinkedList = Process.GetCurrentProcess().WorkingSet64;
+            stopwatch.Stop();
+            var overWriteStringToLinkedListTotalTime = stopwatch.Elapsed.TotalMilliseconds;
             updateProgressBar(100);
+            
+            /* End LinkedList test */
 
             long writeStringsToArrayTestUsedMem = afterWriteStringToArray - beforeWriteStringToArray;
             long overWriteStringsToArrayTestUsedMem = afterOverwriteStringToArray - beforeOverwriteStringToArray;
@@ -193,6 +221,9 @@ namespace HoggerBencher
 
             long writeStringsToDictTestUsedMem = afterWriteStringToDict - beforeWriteStringToDict;
             long overWriteStringsToDictTestUsedMem = afterOverwriteStringToDict - beforeOverwriteStringToDict;
+
+            long writeStringsToLinkedListTestUsedMem = afterWriteStringToLinkedList - beforeWriteStringToLinkedList;
+            long overWriteStringsToLinkedListTestUsedMem = afterOverwriteStringToLinkedList - beforeOverwriteStringToLinkedList;
 
             arrayVsListVsDictionaryResult.Dispatcher.Invoke(DispatcherPriority.Normal,
             new Action
@@ -264,6 +295,33 @@ namespace HoggerBencher
 
                     arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += "*********************************************************";
+                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    
+                    arrayVsListVsDictionaryResult.Text += "LinkedList test 1:";
+                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += "Wrote random strings with 25 characters, " + amountValuesToInsert + " times into a LinkedList<string> object.";
+                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += "This consumed " + writeStringsToLinkedListTestUsedMem + " bytes (" + writeStringsToLinkedListTestUsedMem / 1000 + " KB or " + Convert.ToDecimal(writeStringsToLinkedListTestUsedMem) / Convert.ToDecimal(1000000) + " MB...!) from the RAM";
+                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += "The test ran in " + writeStringToLinkedListTotalTime + " ms";
+                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += "List test 2:";
+                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += "Wrote random strings with 25 characters, " + amountValuesToInsert + " times into List<string> object, then overwrote all of the values with random strings of 25 characters.";
+                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += "This consumed " + overWriteStringsToLinkedListTestUsedMem + " bytes (" + overWriteStringsToLinkedListTestUsedMem / 1000 + " KB or " + Convert.ToDecimal(overWriteStringsToLinkedListTestUsedMem) / Convert.ToDecimal(1000000) + " MB...!) from the RAM";
+                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += "The test ran in " + overWriteStringToLinkedListTotalTime + " ms";
+                    
+                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += "********************** END OF TESTS **************************";
+                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    
                     arrayVsListVsDictionaryResult.Text += "Be aware that the numbers may not be 100% accurate.";
                     arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "Prior to running the test, Windows Garbage Collection is instructed to 'save' a fourth of available memory.";
@@ -292,6 +350,7 @@ namespace HoggerBencher
             var stopwatch = new Stopwatch();
 
             //write random ints to an array
+            updateTestInfo("Writing random ints to an array...");
             stopwatch.Start();
             long beforeWriteIntToArray = Process.GetCurrentProcess().WorkingSet64;
             await TestArrays.WriteToArray(amountValuesToInsert, false, true, true);
@@ -302,6 +361,7 @@ namespace HoggerBencher
             updateProgressBar(15);
 
             //write random ints to an array and then overwrite all values
+            updateTestInfo("Writing random ints to an array and then overwriting all values...");
             stopwatch.Restart();
             long beforeOverwriteIntToArray = Process.GetCurrentProcess().WorkingSet64;
             await TestArrays.WriteThenOverWriteArray(amountValuesToInsert, true, false);
@@ -312,6 +372,7 @@ namespace HoggerBencher
             updateProgressBar(35);
 
             //write random ints to a List
+            updateTestInfo("Writing random ints to a List...");
             stopwatch.Restart();
             long beforeWriteIntToList = Process.GetCurrentProcess().WorkingSet64;
             await TestList.WriteToList(amountValuesToInsert,false, true, true);
@@ -322,6 +383,7 @@ namespace HoggerBencher
             updateProgressBar(50);
 
             //write random ints to a List, then overwrite all values with random ints
+            updateTestInfo("Writing random ints to a List and then overwriting all values...");
             stopwatch.Restart();
             long beforeOverwriteIntToList = Process.GetCurrentProcess().WorkingSet64;
             await TestList.WriteThenOverWriteList(amountValuesToInsert, true, false);
@@ -332,6 +394,7 @@ namespace HoggerBencher
             updateProgressBar(65);
 
             //write random ints to a Dictionary
+            updateTestInfo("Writing random ints to a Dictionary...");
             stopwatch.Restart();
             long beforeWriteIntToDict = Process.GetCurrentProcess().WorkingSet64;
             await TestDictionary.WriteIntDict(amountValuesToInsert, true);
@@ -342,6 +405,7 @@ namespace HoggerBencher
             updateProgressBar(80);
 
             //write random ints to a Dictionary, then overwrite all values with random ints
+            updateTestInfo("Writing random ints to a Dictionary and then overwriting all values...");
             stopwatch.Restart();
             long beforeOverwriteIntToDict = Process.GetCurrentProcess().WorkingSet64;
             await TestDictionary.WriteThenOverWriteDict(amountValuesToInsert, true, false);
@@ -453,6 +517,17 @@ namespace HoggerBencher
             ));
         }
 
+        public async void updateTestInfo(string txtToWrite)
+        {
+            testInfo.Dispatcher.Invoke(DispatcherPriority.Normal,
+                new Action
+                (() =>
+                    {
+                        testInfo.Content = txtToWrite;
+                    }
+                ));
+        }
+
         public async void updateProgressBar(int value)
         {
             pbStatus.Dispatcher.Invoke(DispatcherPriority.Normal,
@@ -461,6 +536,7 @@ namespace HoggerBencher
                 () =>
                 {
                     pbStatus.Value = value;
+                    
                 }
             ));
         }

@@ -83,6 +83,7 @@ namespace HoggerBencher
 
                     var stopwatch = new Stopwatch();
 
+                    updateTestInfo("Benchmark in progress, writing random strings to String object " + numLoopsString + " times...");
                     stopwatch.Start();
                     long beforeStringTest = Process.GetCurrentProcess().WorkingSet64;
                     _ = await TestString.TestMemory(numLoopsString, null);
@@ -92,6 +93,7 @@ namespace HoggerBencher
 
                     updateProgressBarStringVsStringBuilder(50);
 
+                    updateTestInfo("Benchmark in progress, writing random strings to StringBuilder object " + numLoopsString + " times...");
                     stopwatch.Restart();
                     long beforeSBTest = Process.GetCurrentProcess().WorkingSet64;
                     _ = await TestStringBuilder.TestMemory(loops, null);
@@ -165,6 +167,18 @@ namespace HoggerBencher
                 GC.EndNoGCRegion();
 
         }
+
+        public async void updateTestInfo(string txtToWrite)
+        {
+            testInfo.Dispatcher.Invoke(DispatcherPriority.Normal,
+                new Action
+                (() =>
+                    {
+                        testInfo.Content = txtToWrite;
+                    }
+                ));
+        }
+        
         public async void updateProgressBarStringVsStringBuilder(int value)
         {
             pbStringVsStringBuilder.Dispatcher.Invoke(DispatcherPriority.Normal,

@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
 
         <Rectangle Grid.Row="0" Fill="LightBlue" Grid.ColumnSpan="4"/>
-        <Label Content="Array vs List vs Dictionary - Who wins the race?" HorizontalAlignment="Center" FontSize="25" Grid.ColumnSpan="4"/>
+        <Label Content="Array vs List vs Dictionary vs LinkedList - Who wins the race?" HorizontalAlignment="Center" FontSize="25" Grid.ColumnSpan="4"/>
 
         <Label Content="Insert how many values?" Grid.Column="0" Grid.Row="1" Width="auto"/>
         <TextBox Text="10000" MaxLines="1" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Width="auto" HorizontalAlignment="Stretch" Name="howManyValuesToInsertInput"/>
@@ -33,20 +33,20 @@
 
         <Button Content="Start test" Grid.Row="1" Grid.Column="4" Grid.RowSpan="2" Name="classTypeChooserBtn" Click="startArrayListDictTestBtn_Click" Background="LightGreen" />
 
-        <TextBox Grid.ColumnSpan="4" Grid.Row="3" Text="The performance result between array, List and Dictionary will be displayed here" 
+        <TextBox Grid.ColumnSpan="4" Grid.Row="3" Text="The performance result between array, List, Dictionary and LinkedList will be displayed here" 
                  TextWrapping="Wrap" Width="auto" Name="arrayVsListVsDictionaryResult" IsReadOnly="True" 
                  VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto"
                  MaxLines="100" />
 
         <Grid Grid.Row="4" Grid.ColumnSpan="4" Visibility="Collapsed" Name="progressGrid">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition />
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="5*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Content="Benchmark in progress, please wait..." Grid.Row="0" Grid.Column="0"/>
+            <Label Name="testInfo" Grid.Row="0" Grid.Column="0" Background="LightBlue"/>
             <ProgressBar Minimum="0" Maximum="100" Value="0" Name="pbStatus" Height="25" Grid.Row="0" Grid.Column="1"/>
             <TextBlock Text="{Binding ElementName=pbStatus, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1"/>
         </Grid>

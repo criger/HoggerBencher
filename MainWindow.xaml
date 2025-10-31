@@ -23,7 +23,7 @@
 
         <RadioButton Content="String vs StringBuilder" IsChecked="True" Grid.Column="0" Grid.Row="1" FontSize="15" Margin="10" HorizontalAlignment="Center" Name="stringVsStringBuilderRadioBtn" />
 
-        <RadioButton Content="Array vs List vs Dictionary" Grid.Column="1" Grid.Row="1" FontSize="15" Margin="10" HorizontalAlignment="Center" Name="arrayListDictionaryRadioBtn"/>
+        <RadioButton Content="Array vs List vs Dictionary vs LinkedList" Grid.Column="1" Grid.Row="1" FontSize="15" Margin="10" HorizontalAlignment="Center" Name="arrayListDictionaryRadioBtn"/>
 
         <RadioButton Content="Some strange text" Grid.Column="2" Grid.Row="1" FontSize="15" Margin="10" HorizontalAlignment="Center" Name="strangeTxtRadioBtn"/>
 
