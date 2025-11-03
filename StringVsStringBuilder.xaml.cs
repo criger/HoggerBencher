@@ -21,14 +21,14 @@ namespace HoggerBencher
             this.SizeToContent = SizeToContent.WidthAndHeight;
 
 
-            stringVsStringBuilderResult.Text += System.Environment.NewLine;
-            stringVsStringBuilderResult.Text += System.Environment.NewLine;
+            stringVsStringBuilderResult.Text += Environment.NewLine;
+            stringVsStringBuilderResult.Text += Environment.NewLine;
             stringVsStringBuilderResult.Text += "NOTE:";
-            stringVsStringBuilderResult.Text += System.Environment.NewLine;
+            stringVsStringBuilderResult.Text += Environment.NewLine;
             stringVsStringBuilderResult.Text += "For performance reasons, the String test is limited to only 30 000 loops.";
-            stringVsStringBuilderResult.Text += System.Environment.NewLine;
+            stringVsStringBuilderResult.Text += Environment.NewLine;
             stringVsStringBuilderResult.Text += "If you type a value bigger than 30 000, it will default to 30 000.";
-            stringVsStringBuilderResult.Text += System.Environment.NewLine;
+            stringVsStringBuilderResult.Text += Environment.NewLine;
             stringVsStringBuilderResult.Text += "BUT.... the StringBuilder test will be run with the value you typed :-)";
         }
 
@@ -42,6 +42,8 @@ namespace HoggerBencher
             worker.RunWorkerCompleted += worker_RunWorkerCompleted;
             worker.RunWorkerAsync();
             progressGrid.Visibility = Visibility.Visible;
+            progressGrid.InvalidateMeasure();
+            progressGrid.UpdateLayout();            
             updateProgressBarStringVsStringBuilder(0);
 
         }
@@ -93,7 +95,7 @@ namespace HoggerBencher
 
                     updateProgressBarStringVsStringBuilder(50);
 
-                    updateTestInfo("Benchmark in progress, writing random strings to StringBuilder object " + numLoopsString + " times...");
+                    updateTestInfo("Benchmark in progress, writing random strings to StringBuilder object " + loops + " times...");
                     stopwatch.Restart();
                     long beforeSBTest = Process.GetCurrentProcess().WorkingSet64;
                     _ = await TestStringBuilder.TestMemory(loops, null);
@@ -114,28 +116,28 @@ namespace HoggerBencher
                     (
                         () =>
                         {
-                            stringVsStringBuilderResult.Text = "String test wrote a random 25 character long string " + numLoopsString + " times with a newline after each iteration." + System.Environment.NewLine
+                            stringVsStringBuilderResult.Text = "String test wrote a random 25 character long string " + numLoopsString + " times with a newline after each iteration." + Environment.NewLine
                                                              + "Further on, the String test consumed " + stringTestUsedMem + " bytes (" + stringTestUsedMem / 1000 + " KB or " + Convert.ToDecimal(stringTestUsedMem) / Convert.ToDecimal(1000000) + " MB...!)";
-                            stringVsStringBuilderResult.Text += System.Environment.NewLine;
+                            stringVsStringBuilderResult.Text += Environment.NewLine;
                             stringVsStringBuilderResult.Text += "The test ran in " + stringTestTotalTime + " ms";
 
-                            stringVsStringBuilderResult.Text += System.Environment.NewLine;
-                            stringVsStringBuilderResult.Text += System.Environment.NewLine;
+                            stringVsStringBuilderResult.Text += Environment.NewLine;
+                            stringVsStringBuilderResult.Text += Environment.NewLine;
 
-                            stringVsStringBuilderResult.Text += "StringBuilder test wrote a random 25 character long string " + loops + " times with a newline after each iteration." + System.Environment.NewLine
+                            stringVsStringBuilderResult.Text += "StringBuilder test wrote a random 25 character long string " + loops + " times with a newline after each iteration." + Environment.NewLine
                                                              + "Further on, the StringBuilder test consumed " + sbTestUsedMem + " bytes (" + sbTestUsedMem / 1000 + " KB or " + Convert.ToDecimal(sbTestUsedMem) / Convert.ToDecimal(1000000) + " MB...!)";
-                            stringVsStringBuilderResult.Text += System.Environment.NewLine;
+                            stringVsStringBuilderResult.Text += Environment.NewLine;
                             stringVsStringBuilderResult.Text += "The test ran in " + stringBuilderTestTotalTime + " ms";
 
-                            stringVsStringBuilderResult.Text += System.Environment.NewLine;
-                            stringVsStringBuilderResult.Text += System.Environment.NewLine;
+                            stringVsStringBuilderResult.Text += Environment.NewLine;
+                            stringVsStringBuilderResult.Text += Environment.NewLine;
                             stringVsStringBuilderResult.Text += "Be aware that the numbers may not be 100% accurate.";
-                            stringVsStringBuilderResult.Text += System.Environment.NewLine;
+                            stringVsStringBuilderResult.Text += Environment.NewLine;
                             stringVsStringBuilderResult.Text += "Prior to running the test, Windows Garbage Collection is instructed to 'save' a fourth of available memory.";
                             stringVsStringBuilderResult.Text += "This allocates to " + bytesToAllocate + " bytes of the memory from being collected and released.";
-                            stringVsStringBuilderResult.Text += System.Environment.NewLine;
+                            stringVsStringBuilderResult.Text += Environment.NewLine;
                             stringVsStringBuilderResult.Text += "However, it is NOT a guarantee that Garbace Collection did NOT run.. (thanks Microsoft...!)";
-                            stringVsStringBuilderResult.Text += System.Environment.NewLine;
+                            stringVsStringBuilderResult.Text += Environment.NewLine;
                             stringVsStringBuilderResult.Text += "Therefore, it is advised to run the test some more times in order to get a complete overview of how much memory has been used and see the BIG difference between String and StringBuilder!";
 
                         }

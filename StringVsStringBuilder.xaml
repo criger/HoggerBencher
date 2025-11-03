@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HoggerBencher"
         mc:Ignorable="d"
-        Title="StringVsStringBuilder" Height="450" Width="800">
+        Title="StringVsStringBuilder" Height="450" MinWidth="1200" SizeToContent="Manual">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
@@ -23,14 +23,15 @@
         <Button Content="Start test" Grid.Column="2" Grid.Row="0" Background="LightGreen" Name="startStringVsStringBuilderTestBtn" Click="StartStringVsStringBuilderTestBtn_Click"/>
 
         <TextBox Grid.ColumnSpan="3" Grid.Row="1" Text="The performance result between String and StringBuilder will be displayed here." 
-                 TextWrapping="Wrap" Width="auto" Name="stringVsStringBuilderResult" IsReadOnly="True" 
+                 TextWrapping="Wrap" Name="stringVsStringBuilderResult" IsReadOnly="True" 
                  VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto"
-                 MaxLines="100"/>
+                 MaxLines="100" HorizontalAlignment="Stretch"
+                 />
 
-        <Grid Grid.Row="2" Grid.ColumnSpan="3" Visibility="Collapsed" Name="progressGrid">
+        <Grid Grid.Row="2" Grid.ColumnSpan="3" Visibility="Hidden" Name="progressGrid" HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition />
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="5*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>

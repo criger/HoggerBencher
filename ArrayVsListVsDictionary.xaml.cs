@@ -231,105 +231,105 @@ namespace HoggerBencher
                 () =>
                 {
                     arrayVsListVsDictionaryResult.Text = "Array test 1:";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "Wrote random strings with 25 characters, " + amountValuesToInsert + " times into an array.";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "This consumed " + writeStringsToArrayTestUsedMem + " bytes (" + writeStringsToArrayTestUsedMem / 1000 + " KB or " + Convert.ToDecimal(writeStringsToArrayTestUsedMem) / Convert.ToDecimal(1000000) + " MB...!) from the RAM";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "The test ran in " + writeStringToArrayTotalTime + " ms";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "Array test 2:";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "Wrote random strings with 25 characters, " + amountValuesToInsert + " times into an array, then overwrote all of the values with random strings of 25 characters.";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "This consumed " + overWriteStringsToArrayTestUsedMem + " bytes (" + overWriteStringsToArrayTestUsedMem / 1000 + " KB or " + Convert.ToDecimal(overWriteStringsToArrayTestUsedMem) / Convert.ToDecimal(1000000) + " MB...!) from the RAM";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "The test ran in " + overWriteStringToArrayTotalTime + " ms";
 
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "*********************************************************";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
 
                     arrayVsListVsDictionaryResult.Text += "List test 1:";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "Wrote random strings with 25 characters, " + amountValuesToInsert + " times into a List<string> object.";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "This consumed " + writeStringsToListTestUsedMem + " bytes (" + writeStringsToListTestUsedMem / 1000 + " KB or " + Convert.ToDecimal(writeStringsToListTestUsedMem) / Convert.ToDecimal(1000000) + " MB...!) from the RAM";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "The test ran in " + writeStringToListTotalTime + " ms";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "List test 2:";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "Wrote random strings with 25 characters, " + amountValuesToInsert + " times into List<string> object, then overwrote all of the values with random strings of 25 characters.";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "This consumed " + overWriteStringsToListTestUsedMem + " bytes (" + overWriteStringsToListTestUsedMem / 1000 + " KB or " + Convert.ToDecimal(overWriteStringsToListTestUsedMem) / Convert.ToDecimal(1000000) + " MB...!) from the RAM";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "The test ran in " + overWriteStringToListTotalTime + " ms";
 
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "*********************************************************";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
 
                     arrayVsListVsDictionaryResult.Text += "Dictionary test 1:";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "Wrote random strings with 25 characters, " + amountValuesToInsert + " times into a Dictionary<int, string> object.";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "This consumed " + writeStringsToDictTestUsedMem + " bytes (" + writeStringsToDictTestUsedMem / 1000 + " KB or " + Convert.ToDecimal(writeStringsToDictTestUsedMem) / Convert.ToDecimal(1000000) + " MB...!) from the RAM";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "The test ran in " + writeStringToDictTotalTime + " ms";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "Dictionary test 2:";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "Wrote random strings with 25 characters, " + amountValuesToInsert + " times into Dictionary<int, string> object, then overwrote all of the values with random strings of 25 characters.";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "This consumed " + overWriteStringsToDictTestUsedMem + " bytes (" + overWriteStringsToDictTestUsedMem / 1000 + " KB or " + Convert.ToDecimal(overWriteStringsToDictTestUsedMem) / Convert.ToDecimal(1000000) + " MB...!) from the RAM";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "The test ran in " + overWriteStringToDictTotalTime + " ms";
 
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "*********************************************************";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     
                     arrayVsListVsDictionaryResult.Text += "LinkedList test 1:";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "Wrote random strings with 25 characters, " + amountValuesToInsert + " times into a LinkedList<string> object.";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "This consumed " + writeStringsToLinkedListTestUsedMem + " bytes (" + writeStringsToLinkedListTestUsedMem / 1000 + " KB or " + Convert.ToDecimal(writeStringsToLinkedListTestUsedMem) / Convert.ToDecimal(1000000) + " MB...!) from the RAM";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "The test ran in " + writeStringToLinkedListTotalTime + " ms";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "List test 2:";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "Wrote random strings with 25 characters, " + amountValuesToInsert + " times into List<string> object, then overwrote all of the values with random strings of 25 characters.";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "This consumed " + overWriteStringsToLinkedListTestUsedMem + " bytes (" + overWriteStringsToLinkedListTestUsedMem / 1000 + " KB or " + Convert.ToDecimal(overWriteStringsToLinkedListTestUsedMem) / Convert.ToDecimal(1000000) + " MB...!) from the RAM";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "The test ran in " + overWriteStringToLinkedListTotalTime + " ms";
                     
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "********************** END OF TESTS **************************";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     
                     arrayVsListVsDictionaryResult.Text += "Be aware that the numbers may not be 100% accurate.";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "Prior to running the test, Windows Garbage Collection is instructed to 'save' a fourth of available memory.";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "This allocates to " + bytesToAllocate + " bytes of the memory from being collected and released.";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "However, it is NOT a guarantee that Garbace Collection did NOT run.. (thanks Microsoft...!)";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "Therefore, it is advised to run the test some more times in order to get a complete overview of how much memory has been used and see the BIG difference between arrays, Lists and Dictionary!";
 
                 }
@@ -413,8 +413,30 @@ namespace HoggerBencher
             stopwatch.Stop();
             var overWriteIntsToDictTotalTime = stopwatch.Elapsed.TotalMilliseconds;
 
-            updateProgressBar(100);
+            updateProgressBar(85);
+            
+            //write random ints to a LinkedList
+            updateTestInfo("Writing random ints to a LinkedList...");
+            stopwatch.Restart();
+            long beforeWriteIntToLinkedList = Process.GetCurrentProcess().WorkingSet64;
+            await TestLinkedList.WriteIntLinkedListAddMiddle(amountValuesToInsert, true);
+            long afterWriteIntToLinkedList = Process.GetCurrentProcess().WorkingSet64;
+            stopwatch.Stop();
+            var writeIntsToLinkedListTotalTime = stopwatch.Elapsed.TotalMilliseconds;
 
+            updateProgressBar(92);
+            
+            //write random ints to a LinkedList, then overwrite all values with random ints
+            updateTestInfo("Writing random ints to a LinkedList and then overwriting all values...");
+            stopwatch.Restart();
+            long beforeOverwriteIntToLinkedList = Process.GetCurrentProcess().WorkingSet64;
+            await TestLinkedList.WriteThenOverWriteLinkedList(amountValuesToInsert, true, false);
+            long afterOverwriteIntToLinkedList = Process.GetCurrentProcess().WorkingSet64;
+            stopwatch.Stop();
+            var overWriteIntsToLinkedListTotalTime = stopwatch.Elapsed.TotalMilliseconds;
+
+            updateProgressBar(100);
+            
             long writeIntsToArrayTestUsedMem = afterWriteIntToArray - beforeWriteIntToArray;
             long overWriteIntsToArrayTestUsedMem = afterOverwriteIntToArray - beforeOverwriteIntToArray;
 
@@ -424,85 +446,110 @@ namespace HoggerBencher
             long writeIntsToDictTestUsedMem = afterWriteIntToDict - beforeWriteIntToDict;
             long overWriteIntsToDictTestUsedMem = afterOverwriteIntToDict - beforeOverwriteIntToDict;
 
+            long writeIntsToLinkedListTestUsedMem = afterWriteIntToLinkedList - beforeWriteIntToLinkedList;
+            long overWriteIntsToLinkedListTestUsedMem = afterOverwriteIntToLinkedList - beforeOverwriteIntToLinkedList;
+            
             arrayVsListVsDictionaryResult.Dispatcher.Invoke(DispatcherPriority.Normal,
             new Action
             (
                 () =>
                 {
                     arrayVsListVsDictionaryResult.Text = "Array test 1:";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "Wrote random numbers between 0 and 1000, " + amountValuesToInsert + " times into an array.";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "This consumed " + writeIntsToArrayTestUsedMem + " bytes (" + writeIntsToArrayTestUsedMem / 1000 + " KB or " + Convert.ToDecimal(writeIntsToArrayTestUsedMem) / Convert.ToDecimal(1000000) + " MB...!) from the RAM";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "The test ran in " + writeIntsToArrayTotalTime + " ms";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "Array test 2:";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "Wrote random numbers between 0 and 1000, " + amountValuesToInsert + " times into an array, then overwrote all of the values with random numbers between 0 and 1000.";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "This consumed " + overWriteIntsToArrayTestUsedMem + " bytes (" + overWriteIntsToArrayTestUsedMem / 1000 + " KB or " + Convert.ToDecimal(overWriteIntsToArrayTestUsedMem) / Convert.ToDecimal(1000000) + " MB...!) from the RAM";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "The test ran in " + overWriteIntsToArrayTotalTime + " ms";
 
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "*********************************************************";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
 
                     arrayVsListVsDictionaryResult.Text += "List test 1:";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "Wrote random numbers between 0 and 1000, " + amountValuesToInsert + " times into a List<int> object.";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "This consumed " + writeIntsToListTestUsedMem + " bytes (" + writeIntsToListTestUsedMem / 1000 + " KB or " + Convert.ToDecimal(writeIntsToListTestUsedMem) / Convert.ToDecimal(1000000) + " MB...!) from the RAM";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "The test ran in " + writeIntsToListTotalTime + " ms";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "List test 2:";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "Wrote random numbers between 0 and 1000, " + amountValuesToInsert + " times into a List<int> object, then overwrote all of the values with random numbers between 0 and 1000.";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "This consumed " + overWriteIntsToListTestUsedMem + " bytes (" + overWriteIntsToListTestUsedMem / 1000 + " KB or " + Convert.ToDecimal(overWriteIntsToListTestUsedMem) / Convert.ToDecimal(1000000) + " MB...!) from the RAM";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "The test ran in " + overWriteIntsToListTotalTime + " ms";
 
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "*********************************************************";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
 
                     arrayVsListVsDictionaryResult.Text += "Dictionary test 1:";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "Wrote random numbers between 0 and 1000, " + amountValuesToInsert + " times into a Dictionary<int, int> object.";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "This consumed " + writeIntsToDictTestUsedMem + " bytes (" + writeIntsToDictTestUsedMem / 1000 + " KB or " + Convert.ToDecimal(writeIntsToDictTestUsedMem) / Convert.ToDecimal(1000000) + " MB...!) from the RAM";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "The test ran in " + writeIntsToDictTotalTime + " ms";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "Dictionary test 2:";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "Wrote random numbers between 0 and 1000, " + amountValuesToInsert + " times into a Dictionary<int, int> object, then overwrote all of the values with random numbers between 0 and 1000.";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "This consumed " + overWriteIntsToDictTestUsedMem + " bytes (" + overWriteIntsToDictTestUsedMem / 1000 + " KB or " + Convert.ToDecimal(overWriteIntsToDictTestUsedMem) / Convert.ToDecimal(1000000) + " MB...!) from the RAM";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "The test ran in " + overWriteIntsToDictTotalTime + " ms";
 
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += "LinkedList test 1:";
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += "Wrote random numbers between 0 and 1000, " + amountValuesToInsert + " times into a LinkedList<int> object.";
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += "This consumed " + writeIntsToLinkedListTestUsedMem + " bytes (" + writeIntsToLinkedListTestUsedMem / 1000 + " KB or " + Convert.ToDecimal(writeIntsToLinkedListTestUsedMem) / Convert.ToDecimal(1000000) + " MB...!) from the RAM";
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += "The test ran in " + writeIntsToLinkedListTotalTime + " ms";
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += "Dictionary test 2:";
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += "Wrote random numbers between 0 and 1000, " + amountValuesToInsert + " times into a LinkedList<int> object, then overwrote all of the values with random numbers between 0 and 1000.";
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += "This consumed " + overWriteIntsToLinkedListTestUsedMem + " bytes (" + overWriteIntsToLinkedListTestUsedMem / 1000 + " KB or " + Convert.ToDecimal(overWriteIntsToLinkedListTestUsedMem) / Convert.ToDecimal(1000000) + " MB...!) from the RAM";
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += "The test ran in " + overWriteIntsToLinkedListTotalTime + " ms";
+
+                    
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += "********************** END OF TESTS **************************";
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    
                     arrayVsListVsDictionaryResult.Text += "Be aware that the numbers may not be 100% accurate.";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "Prior to running the test, Windows Garbage Collection is instructed to 'save' a fourth of available memory.";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "This allocates to " + bytesToAllocate + " bytes of the memory from being collected and released.";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
-                    arrayVsListVsDictionaryResult.Text += "However, it is NOT a guarantee that Garbace Collection did NOT run.. (thanks Microsoft...!)";
-                    arrayVsListVsDictionaryResult.Text += System.Environment.NewLine;
-                    arrayVsListVsDictionaryResult.Text += "Therefore, it is advised to run the test some more times in order to get a complete overview of how much memory has been used and see the BIG difference between arrays, Lists and Dictionary!";
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += "However, it is NOT a guarantee that Garbage Collection did NOT run.. (thanks Microsoft...!)";
+                    arrayVsListVsDictionaryResult.Text += Environment.NewLine;
+                    arrayVsListVsDictionaryResult.Text += "Therefore, it is advised to run the test some more times in order to get a complete overview of how much memory has been used and see the BIG difference between arrays, Lists, Dictionary and LinkedList!";
 
                 }
             ));
