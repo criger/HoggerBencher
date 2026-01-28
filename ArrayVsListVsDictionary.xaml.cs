@@ -310,7 +310,7 @@ namespace HoggerBencher
                     arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "List test 2:";
                     arrayVsListVsDictionaryResult.Text += Environment.NewLine;
-                    arrayVsListVsDictionaryResult.Text += "Wrote random strings with 25 characters, " + amountValuesToInsert + " times into List<string> object, then overwrote all of the values with random strings of 25 characters.";
+                    arrayVsListVsDictionaryResult.Text += "Wrote random strings with 25 characters, " + amountValuesToInsert + " times into LinkedList<string> object, then overwrote all of the values with random strings of 25 characters.";
                     arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "This consumed " + overWriteStringsToLinkedListTestUsedMem + " bytes (" + overWriteStringsToLinkedListTestUsedMem / 1000 + " KB or " + Convert.ToDecimal(overWriteStringsToLinkedListTestUsedMem) / Convert.ToDecimal(1000000) + " MB...!) from the RAM";
                     arrayVsListVsDictionaryResult.Text += Environment.NewLine;
@@ -328,7 +328,7 @@ namespace HoggerBencher
                     arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "This allocates to " + bytesToAllocate + " bytes of the memory from being collected and released.";
                     arrayVsListVsDictionaryResult.Text += Environment.NewLine;
-                    arrayVsListVsDictionaryResult.Text += "However, it is NOT a guarantee that Garbace Collection did NOT run.. (thanks Microsoft...!)";
+                    arrayVsListVsDictionaryResult.Text += "However, it is NOT a guarantee that Garbage Collection did NOT run.. (thanks Microsoft...!)";
                     arrayVsListVsDictionaryResult.Text += Environment.NewLine;
                     arrayVsListVsDictionaryResult.Text += "Therefore, it is advised to run the test some more times in order to get a complete overview of how much memory has been used and see the BIG difference between arrays, Lists and Dictionary!";
 
